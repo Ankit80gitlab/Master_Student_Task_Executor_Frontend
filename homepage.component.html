@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="header">
+      <div class="headlogo">
+      <img id="logo" src="assets/calculator.png" alt="Avatar">
+      <h1 id="head">Master & Student Task Executor</h1>
+    </div>
+  
+      
+      <div class="routes">
+        <a class="r1" routerLink="/login" matTooltip="Click here to log in">Log in</a>
+        <a class="r2" routerLink="/signup" matTooltip="Create new account">Sign up</a>
+      </div>
+  
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-drawer-container class="example-container">
+    <mat-drawer id="draw" mode="side" opened>
+      <!-- drawer content -->
+  
+  
+      <!-- drawer content -->
+    </mat-drawer>
+    <mat-drawer-content>
+  
+      <router-outlet></router-outlet>

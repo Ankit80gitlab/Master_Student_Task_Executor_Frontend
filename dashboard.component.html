@@ -1,0 +1,139 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="header">
+    <div class="headlogo">
+      <img id="logo" src="assets/calculator.png" alt="Avatar">
+      <h1 id="head">Master & Student Task Executor</h1>
+    </div>
+
+
+    <div style="margin-top: 10px;">
+      <h2>{{LIU}} | role - {{LIUR}} </h2>
+    </div>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer id="draw" mode="side" opened>
+    <!-- drawer content -->
+
+    <div id="logs">
+      <mat-icon style="margin-top: 5px;padding-top: 3px;">list_alt</mat-icon>OPERATION LOGS
+      <hr style="color: black;">
+    </div>
+
+    <div id="logsData" *ngFor="let i of logsData">
+      <button id="trn" (click)="logInfoExtr(i)">{{i}}</button>
+      <hr>
+    </div>
+
+
+    <!-- drawer content -->
+  </mat-drawer>
+  <mat-drawer-content>
+
+    <script src="assets/js/custom.js"></script>
+
+
+    <div class="container" style="margin-top: 20px;">
+      <div class="row">
+        <div class="col-sm">
+          <mat-card>
+            <mat-card-content style="padding-bottom: 24px;">
+              <h3>OPERATIONS</h3>
+              <ol>
+                <li>plus() : +</li>
+                <li>minus() : -</li>
+                <li>times() : x</li>
+                <li>dividedBy() : /</li>
+              </ol>
+            </mat-card-content>
+
+          </mat-card>
+        </div>
+        <div class="col-sm">
+          <mat-card>
+            <mat-card-content>
+              <h5>FUNCTION FOR EACH NUMBER</h5>
+              <ul>
+                <li>zero() : 0</li>
+                <li>one() : 1</li>
+                <li>two() : 2</li>
+                <li>three() : 3</li>
+                <li>four() : 4</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-sm">
+          <mat-card>
+            <mat-card-content>
+              <h5>FUNCTION FOR EACH NUMBER</h5>
+              <ul>
+                <li>five() : 5</li>
+                <li>six() : 6</li>
+                <li>seven() : 7</li>
+                <li>eight() : 8</li>
+                <li>nine() : 9</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+
+
+    <form class="example-form">
+      <div id="comp1">
+        <h3 style="font-family: 'Times New Roman', serif;">STUDENT (output) :</h3>
+        <div id="screen">
+          <h3 style="padding-top: 9px; margin-left: 10px;">{{result}}</h3>
+        </div>
+        <h3 style="font-family: 'Times New Roman', serif;">MASTER (input) :</h3><mat-form-field
+          class="example-full-width">
+          <mat-label>MATHEMATICAL OPERATION</mat-label>
+          <input type="text" id="f" #f onfocus="this.value=''" (click)="resetScreen()" matInput
+            placeholder="Ex. seven(times(five()))">
+        </mat-form-field>
+        <button style="margin-left: 120px;margin-bottom: 10px;" mat-raised-button color="primary"
+          (click)="evaluateFun(f.value)">Evaluate</button>
+      </div>
+
+      <div id="bl1" style="text-align: center;">TOTAL <br> OPERATION
+        <br>
+        <h2 style="font-size: 60px;margin-top: 25px;">{{totalOperation}}</h2>
+      </div>
+
+      <div id="bl2" style="text-align: center;">EXECUTED <br> OPERATION
+        <br>
+        <h2 style="font-size: 60px;margin-top: 25px;">{{correctOperation}}</h2>
+      </div>
+
+      <div id="bl3" style="text-align: center;">BLANK <br> OPERATION
+        <br>
+        <h2 style="font-size: 60px;margin-top: 25px;">{{blankOperation}}</h2>
+      </div>
+
+      <div id="bl4" style="text-align: center;">INVALID <br> OPERATION
+        <br>
+        <h2 style="font-size: 60px;margin-top: 25px;">{{invalidOperation}}</h2>
+      </div>
+
+      <div id="logInfo">
+      <div style="text-align: center; padding-top: 5px;font-weight: 500;">OPERATION LOG INFO</div> <hr>
+        <h3 style="margin-left: 20px;">OPERATION NO : {{operationNo}}</h3><br>
+        <h3 style="margin-left: 20px;">QUERY : {{operationQuery}}</h3><br>
+        <h3 style="margin-left: 20px;">RESULT : {{operationResult}}</h3><br>
+      </div>
+
+      <div id="suppw">d</div>
+
+      <button id="clrLog" (click)="clearLogs()" mat-raised-button color="primary">CLEAR ALL LOGS</button>
+      <button id="lgOut2" mat-raised-button color="primary"></button>
+      <button id="lgOut" (click)="logout()" mat-raised-button color="primary">LOG OUT</button>
+
+
+
+      <router-outlet></router-outlet>
